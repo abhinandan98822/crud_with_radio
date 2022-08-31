@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <style>
+        form{
+            display:block;
+            align-items: center;
+        }
+    </style>
+
+</head>
+<body>
+    <form method="POST">
+    <label>Name</label>
+    <input type="text" name="name"  value={{data.name}}><br><br>
+    <label>LastName</label>
+    <input type="text" name="lastname"value={{data.lastname}}><br><br>
+    <label>Username</label>
+    <input type="text" name="username" value={{data.username}}><br><br>
+    <label>Email</label>
+    <input type="email" name="email" value={{data.email}}><br><br>
+    <label>Password</label>
+    <input type="password" name="psw" value={{data.password}}><br><br>
+    <label>Salary</label>
+    <input type="number" name="salary" value={{data.salary}}><br><br>
+   
+
+    <label>Gender:</label><br>
+    {% with sex=data.gender %}     
+
+{{sex}}
+{% if sex==Male %}MAle{%endif%}
+{% if sex==Female %}Female{%endif%}
+
+<input type="radio" name='gender' value="Male" {% if sex=='Male' %}checked{% endif %}>Male
+</input>
+
+
+
+<input type="radio"  name='gender' value= "Female"{% if sex=='Female' %}checked{% endif %}>Female</input>
+{% endwith %}
+    <br><br>
+    <input type="submit" value="update">%%
+
+
+    
+
+</form>
+</body>
+</html>
